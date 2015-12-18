@@ -1,0 +1,27 @@
+#!/bin/sh
+
+
+function find_and_show() {
+    declare -a paths=("${!1}")
+    filename=$2
+    for path in ${paths[@]}
+    do
+        fullpath=${path}/${filename}
+        echo "${fullpath}:" | grep "^[^:]*"
+        if [ -f "${fullpath}" ]; then
+            cat -n ${fullpath}
+            break
+        fi
+    done
+}
+
+bin_path=(/usr/local/bin ~/bin)
+host_filename=".remote_hosts.txt"
+tool_filename=".toollist.txt"
+echo "--------------------------------------------------------------------"
+find_and_show bin_path[@] ${host_filename}
+
+echo "--------------------------------------------------------------------"
+find_and_show bin_path[@] ${tool_filename}
+
+echo "--------------------------------------------------------------------"

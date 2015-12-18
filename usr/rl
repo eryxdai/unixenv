@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+file=$1
+
+if [[ $1 == /* ]]; then
+	echo ${HOSTNAME}:$1
+else
+	echo ${HOSTNAME}:$(pwd)/${file}
+fi

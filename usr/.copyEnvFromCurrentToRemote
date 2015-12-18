@@ -1,0 +1,39 @@
+#!/bin/bash
+
+remote_hostname=$1
+if [ -z "$1" ];then
+    echo "no remote host"
+    exit 1
+fi
+
+
+# Backup remote host's settings
+ssh ${remote_hostname} 'bash -s' < /usr/local/bin/.backupenv
+
+
+echo "-----------------------------------------------------------------------------------------------------------"
+echo "Copy current ~/.vim* ~/.bash* /usr/local/bin/* ~/.git* to ${remote_hostname}"
+echo "-----------------------------------------------------------------------------------------------------------"
+
+# Copy vim settings to remote host
+scp -r ~/.vim* ${remote_hostname}:~/
+
+# Copy bash settings to remote host
+scp -r ~/.bash* ${remote_hostname}:~/
+
+# Copy bin tools to remote host
+tool_list_paths=("/usr/local/bin" "~/bin")
+tool_list_name=".toollist.txt"
+
+for path in ${tool_list_paths[@]}
+do
+    filename="${path}/${tool_list_name}"
+    if [ -f "${filename}" ]; then
+        files="$(cat ${filename} | tr [:space:] ' ' | sed 's/ $//' | tr ' ' ',')"
+        eval "scp -r ${path}/{${files}} ${remote_hostname}:~/bin"
+        break
+    fi
+done
+
+# Copy git settings to remote host
+scp -r ~/.git* ${remote_hostname}:~/

@@ -1,0 +1,45 @@
+#!/bin/bash
+
+
+# create backup
+backupdir="backupdir"
+timestamp=$(date +"%Y-%m-%d_%H%M%S")
+backupvim="${backupdir}/vim_backup_${timestamp}.tar"
+backupbash="${backupdir}/bash_backup_${timestamp}.tar"
+backupcmd="${backupdir}/cmd_backup_${timestamp}.tar"
+backupgit="${backupdir}/git_backup_${timestamp}.tar"
+
+
+echo "-----------------------------------------------------------------------------------------------------------"
+echo "Back up original bash, vim, cmd, git related files or dirs to '${backupdir}' in $(hostname)"
+echo "-----------------------------------------------------------------------------------------------------------"
+
+if [ ! -d "${backupdir}" ]; then
+    mkdir ${backupdir}
+    echo "'${backupdir}' created"
+fi
+
+if [ -f "${backupvim}" ] || [ -f "${backupbash}" ] || [ -f "${backupcmd}" ] || [ -f "${backupgit}" ]; then
+    echo "Fail to create ${backupvim} or ${backupbash} or ${backupcmd}"
+    exit 1
+fi
+
+tar -czvf ${backupvim} ~/.vim* 2> /dev/null
+#echo "Success to backup ~/.vim*"
+#echo
+
+tar -czvf ${backupbash} ~/.bash* 2> /dev/null
+#echo "Success to backup ~/.bash*"
+#echo
+
+if [ ! -d ~/bin ]; then
+    mkdir bin
+fi
+
+tar -czvf ${backupcmd} ~/bin 2> /dev/null
+#echo "Success to backup ~/bin"
+#echo
+
+tar -czvf ${backupgit} ~/.git* 2> /dev/null
+#echo "Success to backup ~/.git*"
+#echo

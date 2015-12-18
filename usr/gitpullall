@@ -1,0 +1,33 @@
+#!/bin/sh
+
+path=$1
+if [ -z "${path}" ]; then
+	path="."
+else
+	path=${path}
+fi
+
+echo
+
+curdir=$(pwd)
+os=$(uname -s)
+if [ "${os}" ==  "Darwin" ]; then
+	dirnames=($(find ${path} -type d -maxdepth 1 -exec basename {} \;))
+elif [ "${os}" == "Linux" ]; then
+	dirnames=($(find ${path} -maxdepth 1 -type d -exec basename {} \;))
+fi
+
+for dirname in ${dirnames[@]}
+do
+	dirname=${path}/${dirname}
+	if [ "${dirname}" == "." ] || [ ! -d "${dirname}/.git" ]; then
+		continue
+	else
+		echo "------------------------------------"
+		echo "git pulls in -->${dirname}<--"
+		cd "${dirname}"
+		git pull
+		cd "${curdir}"
+		echo
+	fi
+done

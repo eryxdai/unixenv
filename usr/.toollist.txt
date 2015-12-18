@@ -1,0 +1,10 @@
+.login
+.backupenv
+.copyEnvFromCurrentToRemote
+.colorfile
+.showhosts_tools
+.remote_hosts.txt
+.toollist.txt
+rl
+gitcheck
+gitpullall

@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/usr/local/bin/backupdir'
+let g:netrw_dirhist_2='/usr/local/bin'
+let g:netrw_dirhist_3='/Users/yuxuandai/PycharmProjects/Answer'
+let g:netrw_dirhist_4='/Users/yuxuandai/PycharmProjects/Shambala/ShaTuningPipeline/newpipeline/dataScrapedWithQpUrl'
+let g:netrw_dirhist_5='/Users/yuxuandai/.vim'
+let g:netrw_dirhist_6='/Users/yuxuandai/.ssh'

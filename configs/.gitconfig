@@ -1,0 +1,24 @@
+[core]
+	excludesfile = ~/.git/.gitignore_global
+    editor = /usr/bin/vim
+	autocrlf = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[color]
+	ui = auto
+[user]
+	email = yuxuandai@yahoo-inc.com
+[push]
+	default = matching
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	ci = commit
+	ll = log --graph --decorate --branches --remotes --tags
+	unstage = reset HEAD --
+	last = log -5 --graph  --decorate

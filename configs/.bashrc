@@ -159,9 +159,7 @@ function set_hadoop_env() {
     alias hmv="hadoop fs -mv"
     alias hchmod="hadoop fs -chmod"
     alias hcp="hadoop fs -cp"
-    alias kinity="kinit yuxuandai@Y.CORP.YAHOO.COM"
 
-    export LD_LIBRARY_PATH=~/../newsrtuf/epd/lib/:$LD_LIBRARY_PATH
 }
 
 

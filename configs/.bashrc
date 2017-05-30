@@ -124,13 +124,13 @@ function set_env_mac() {
         PS1="[ \[${Blue}\]\\u\[${Color_Off}\]@:💻  \\w\[${Purple}\]\$(parse_git_branch)\[${Color_Off}\] ]$ "
     fi
 
-    # gsm local env setting
-    export PATH=${PATH}:${HOME}/apache-maven-3.2.5/bin
-    export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 }
 
 function set_env_linux() {
 #   echo "use linux settings" >&2
+
+#   check loop
+#    source backupdir/home/...
 
     if [ $(id -u) -eq 0 ]; then
         # you are root, set red colour prompt

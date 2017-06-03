@@ -1,0 +1,6 @@
+[ui]
+username = Yuxuan Dai <yuxuandai@fb.com>
+editor = /usr/bin/vim
+
+[color]
+custom.rev = red

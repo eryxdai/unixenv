@@ -105,10 +105,13 @@ done
 #################################################################################
 function parse_git_branch() {
     branch_name=$(git branch 2> /dev/null | grep '\*' | cut -d ' ' -f2)
-    if [ -z "${branch_name}" ]; then
-        echo ""
+    bookmark_name=$(hg bookmark 2> /dev/null | grep '\*' | cut -d ' ' -f3)
+    if [ ! -z "${branch_name}" ]; then
+        echo  " (git: ${branch_name})"
+    elif [ ! -z "${bookmark_name}" ]; then
+        echo  " (hg: ${bookmark_name})"
     else
-        echo  " (${branch_name})"
+        echo ""
     fi
 }
 

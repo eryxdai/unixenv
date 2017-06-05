@@ -132,8 +132,8 @@ function set_env_mac() {
 function set_env_linux() {
 #   echo "use linux settings" >&2
 
-#   check loop
-#    source backupdir/home/...
+    # source default dev box settings which is located in backup dir
+    source ~/backupdir/home/yuxuandai/.bashrc
 
     if [ $(id -u) -eq 0 ]; then
         # you are root, set red colour prompt

@@ -8,3 +8,5 @@ custom.rev = red
 [alias]
 latest = log --limit 5
 showname = status --rev .:.^
+showname = status --rev .:.^
+difflast = diff --rev .:.^

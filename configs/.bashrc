@@ -106,10 +106,13 @@ done
 function parse_git_branch() {
     branch_name=$(git branch 2> /dev/null | grep '\*' | cut -d ' ' -f2)
     bookmark_name=$(hg bookmark 2> /dev/null | grep '\*' | cut -d ' ' -f3)
+    commit_info=$(hg sl 2> /dev/null | grep @.* -o | tr -s ' ')
     if [ ! -z "${branch_name}" ]; then
         echo  " (git: ${branch_name})"
     elif [ ! -z "${bookmark_name}" ]; then
         echo  " (hg: ${bookmark_name})"
+    elif [ ! -z "${commit_info}" ]; then
+        echo "  (hg -> ${commit_info})"
     else
         echo ""
     fi

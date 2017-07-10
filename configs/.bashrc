@@ -127,6 +127,13 @@ function set_env_mac() {
         PS1="[ \[${Blue}\]\\u\[${Color_Off}\]@:💻  \\w\[${Purple}\]\$(parse_git_branch)\[${Color_Off}\] ]$ "
     fi
 
+#   # all python version will refer to this path if it's added
+#   # workaround: add site-packages to .pth file under python2.7, so sys.path has this path
+#    export PYTHONPATH="/opt/homebrew/lib/python2.7/site-packages/:$PYTHONPATH"
+
+#    # java related env
+    export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_131`
+    export CLASSPATH="/usr/local/lib:$CLASSPATH"
 }
 
 function set_env_linux() {

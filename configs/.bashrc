@@ -137,6 +137,13 @@ function set_env_mac() {
 #    # java related env
     export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_131`
     export CLASSPATH="/usr/local/lib:$CLASSPATH"
+#######################################
+#   conda
+    export PATH="/Users/yuxuandai/miniconda2/bin:$PATH"
+    source activate python35
+    echo "source activate python35" >&2
+#######################################
+
 }
 
 function set_env_linux() {

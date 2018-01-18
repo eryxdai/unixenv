@@ -52,6 +52,11 @@ alias ls="ls -F"
 alias ll="ls -AlF"
 alias cp="cp -i"
 alias mv="mv -i"
+alias aicanary="submit_canary --q tw_adindexer_canary_on_canary_tier"
+alias afcanary="submit_canary --q tw_adfinder_canary_on_canary_tier"
+alias mfcanary="submit_canary multifeed_aggregator_canary"
+alias buckmf1="buck build multifeed/aggregator:aggregator_link"
+alias buckmf2="buck build @mode/opt-clang multifeed/aggregator:aggregator_link"
 
 
 #################################################################################

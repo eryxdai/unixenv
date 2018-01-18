@@ -57,6 +57,12 @@ alias afcanary="submit_canary --q tw_adfinder_canary_on_canary_tier"
 alias mfcanary="submit_canary multifeed_aggregator_canary"
 alias buckmf1="buck build multifeed/aggregator:aggregator_link"
 alias buckmf2="buck build @mode/opt-clang multifeed/aggregator:aggregator_link"
+alias buckaf="buck build @mode/opt-clang admarket/adfinder:adfinder"
+alias buckai="buck build @mode/opt-clang admarket/adindexer:adindexer"
+alias runmf="buck-out/gen/multifeed/aggregator/aggregator_link --smc_tiername=multifeed.aggregator_dev-yuxuandai --smc_server_port=4010 --min_timing=0 --ranking_debug=1 --print_stats --minloglevel=0 --logtofiles --log_dir=/home/yuxuandai/logs --vmodule=BoulderStoryRanker=3"
+alias runaf="ADFINDER_BIN=buck-out/opt-clang/gen/admarket/adfinder/adfinder admarket/adfinder/scripts/dev_af_run.sh"
+alias runai="ADINDEXER_BIN=buck-out/opt-clang/gen/admarket/adindexer/adindexer admarket/adindexer/scripts/dev_adind_run.sh"
+alias folkmf="mf_forker -s dev9130.prn1.facebook.com:4010 -q 20 -d 120 -r prn"
 
 
 #################################################################################
